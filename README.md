@@ -4,3 +4,6 @@ This program is a recreation of what was shown in Numberphile's latest video  [*
 **Controls:**
 - *Vertical Arrows*: Change speed
 - *Horizontal Arrows*: Change dot count
+
+### Here is how it looks:
+![Gif of the program](https://media.giphy.com/media/lqHGm6l8Qap8vWnKB8/giphy.gif)
