@@ -53,8 +53,11 @@ def keyPressed():
             generate_dots()
 
 def generate_dots():
-    global dots
+    global dots, dot_count
     dots = []
+    
+    if dot_count < 1:
+        dot_count = 1
     
     scaled_r = get_scaled_radius(r)
     for i in range(0, dot_count):
