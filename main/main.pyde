@@ -7,6 +7,7 @@ angle = 0
 angular_vel = .03
 
 dot_count = 2
+line_style = 0
 dots = []
 
 def setup():
@@ -20,7 +21,9 @@ def draw():
     background(51)
     
     scaled_radius = get_scaled_radius(r)
-    draw_circle(scaled_radius)
+    
+    if line_style == 0 or line_style == 1:
+        draw_circle(scaled_radius)
     
     # yellow dots inside the circle
     for dot in dots:
@@ -51,6 +54,14 @@ def keyPressed():
         elif keyCode == LEFT:
             dot_count -= 1
             generate_dots()
+            
+    # handling lines
+    global line_style
+    if key == " ":
+        line_style += 1
+        if line_style > 2:
+            line_style = 0
+        generate_dots()
 
 def generate_dots():
     global dots, dot_count
@@ -60,8 +71,9 @@ def generate_dots():
         dot_count = 1
     
     scaled_r = get_scaled_radius(r)
+    show_lines = True if line_style == 0 else False
     for i in range(0, dot_count):
-        dots.append(MovingDot(PI * (i / float(dot_count)),scaled_r))
+        dots.append(MovingDot(PI * (i / float(dot_count)), scaled_r, show_lines))
         
 
 def draw_circle(radius):
